@@ -33,6 +33,10 @@
        
         
         var heroes =  ["harry potter", "John Snow", "Wonder Woman", "Mulan", "Yoda", "dumbledore", "superman", "hamilton", "beyonce", "elon musk", "michelle obama", "oprah"];
+    
+        
+        
+        
         
         //create a for loop thats appends a button for each string in the array
         for (var i =0; i < heroes.length; i++ ) {
@@ -43,6 +47,7 @@
         
         };
         
+        
     $('button').on('click', function() {   
         var type = $(this).data('search');
         var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' +type+ '&api_key=dc6zaTOxFJmzC&limit=10';
@@ -52,6 +57,41 @@
             method: 'GET',
         }).done(function(response) {
             console.log(response);
+            for(var i=0; i<response.data.length; i++) {
+                
+                var stillImage = response.data[i].images.fixed_height_still.url;
+                var animatedImage = response.data[i].images.fixed_height.url;
+                var heroeImage = $('<img>');
+                heroeImage.attr('src', animatedImage);
+                heroeImage.attr('data-still', stillImage);
+                heroeImage.attr('data-animate', animatedImage);
+                
+               
+                heroeImage.addClass('pic');
+                var heroeIsStill = false;
+                
+                
+                
+                //this is for the raitings
+                $(".gifs").prepend("<p>Rating: " + response.data[i].rating + "</p>");
+                //this is for the images
+                $(".gifs").prepend(heroeImage); 
+                
+                
+                
+                $('.pic').on('click', function () {
+                    
+                    if(heroeIsStill === false) {
+                        $(this).attr('src', $(this).data('still'));
+                        heroeIsStill = true;
+                    }else {
+                        $(this).attr('src', $(this).data('animate'));
+                        heroeIsStill = false;
+                    }
+                    
+                })
+                
+            }
         })
   });
   
