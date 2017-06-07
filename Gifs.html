@@ -11,9 +11,9 @@
     
     <form class="navbar-form navbar-left" role="search">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
+        <input type="text" id = "heroeInput" class="form-control" placeholder="Search">
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <button type="submit" id = "heroeButton" class="btn btn-default">Submit</button>
     </form>
     
     <div class= "container">
@@ -35,20 +35,36 @@
         var heroes =  ["harry potter", "John Snow", "Wonder Woman", "Mulan", "Yoda", "dumbledore", "superman", "hamilton", "beyonce", "elon musk", "michelle obama", "oprah"];
     
         
+       
         
-        
-        
+    function buttonArrays (){
+            $('.buttons').empty();
         //create a for loop thats appends a button for each string in the array
         for (var i =0; i < heroes.length; i++ ) {
             var theButton = $('<button>' +heroes[i]+ '</button>');
+            theButton.addClass('heroeClass');
             theButton.attr('data-search', heroes[i]);
             $('.buttons').append(theButton);
             
         
-        };
+        }
+    };
+    
+  
+         //search bar input
+        $("#heroeButton").on("click", function(event) {
+            event.preventDefault();
+            var addHeroe = $("#heroeInput").val();
+            heroes.push(addHeroe);
+            buttonArrays ();
+        });
+  
+       
+       buttonArrays ();
         
         
-    $('button').on('click', function() {   
+    function displayHeroeInfo() {
+        
         var type = $(this).data('search');
         var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' +type+ '&api_key=dc6zaTOxFJmzC&limit=10';
         console.log(queryURL);
@@ -57,8 +73,6 @@
             method: 'GET',
         }).done(function(response) {
             console.log(response);
-            
-            
  
             
             for(var i=0; i<response.data.length; i++) {
@@ -101,8 +115,10 @@
                 });
            
             })
-        });
+        };
         
+        $(document).on("click", ".heroeClass", displayHeroeInfo);
+       
   
     
     </script>
