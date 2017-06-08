@@ -2,125 +2,55 @@
 <html>
 <head>
     <meta charset="UTF-8">
-	<title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gifs</title>
+    <link href="assets/css/reset.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
     
+    <h1>Heroe Gifs</h1>
     
-    <form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-        <input type="text" id = "heroeInput" class="form-control" placeholder="Search">
-      </div>
-      <button type="submit" id = "heroeButton" class="btn btn-default">Submit</button>
-    </form>
-    
+<div class= "row">
+    <div class = "col-md-6-lg-6">
+        <form class="navbar-form" role="search">
+          <div class="form-group">
+            <input type="text" id = "heroeInput" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" id = "heroeButton" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+</div>
+<div class= "row">
+    <div class="col-md-6-lg-6">
     <div class= "container">
-        <div class= "buttons">
-        
-        </div>
-        
-        <div class="gifs">
-        </div>
-    
+            <div class= "buttons">
+
+            </div>
+
+            <div class="gifs">
+            </div>
+    </div>  
+    </div>
     
     </div>
      <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script type="text/javascript">
         
-   
-       
-        
-        var heroes =  ["harry potter", "John Snow", "Wonder Woman", "Mulan", "Yoda", "dumbledore", "superman", "hamilton", "beyonce", "elon musk", "michelle obama", "oprah"];
-    
-        
-       
-        
-    function buttonArrays (){
-            $('.buttons').empty();
-        //create a for loop thats appends a button for each string in the array
-        for (var i =0; i < heroes.length; i++ ) {
-            var theButton = $('<button>' +heroes[i]+ '</button>');
-            theButton.addClass('heroeClass');
-            theButton.attr('data-search', heroes[i]);
-            $('.buttons').append(theButton);
-            
-        
-        }
-    };
-    
-  
-         //search bar input
-        $("#heroeButton").on("click", function(event) {
-            event.preventDefault();
-            var addHeroe = $("#heroeInput").val();
-            heroes.push(addHeroe);
-            buttonArrays ();
-        });
-  
-       
-       buttonArrays ();
-        
-        
-    function displayHeroeInfo() {
-        
-        var type = $(this).data('search');
-        var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' +type+ '&api_key=dc6zaTOxFJmzC&limit=10';
-        console.log(queryURL);
-        $.ajax({
-           url: queryURL, 
-            method: 'GET',
-        }).done(function(response) {
-            console.log(response);
- 
-            
-            for(var i=0; i<response.data.length; i++) {
-                
-                var stillImage = response.data[i].images.fixed_height_still.url;
-                var animatedImage = response.data[i].images.fixed_height.url;
-                var heroeImage = $('<img>');
-                heroeImage.attr('src', animatedImage);
-                heroeImage.attr('data-still', stillImage);
-                heroeImage.attr('data-animate', animatedImage);
-                heroeImage.attr('data-state', 'still' );
-               
-                heroeImage.addClass('heroeImage');
-                
-                var heroeIsStill = false;
-                
-                
-                //this is for the raitings
-                $(".gifs").prepend("<p>Rating: " + response.data[i].rating + "</p>");
-                //this is for the images
-                $(".gifs").prepend(heroeImage); 
-                
-            
-           
-              } 
-            $('.heroeImage').on('click', function () {
-                var state = $(this).attr('data-state');
-
-                if(state === 'still') {
-                    $(this).attr('src', $(this).data('animate'));
-                    $(this).attr('data-state', 'animate');
-
-
-                }else {
-                    $(this).attr('src', $(this).data('still'));
-                    $(this).attr('data-state', 'still');
-
-                }
-                    
-                });
-           
-            })
-        };
-        
-        $(document).on("click", ".heroeClass", displayHeroeInfo);
        
   
     
     </script>
+    
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	 <script src="assets/javascript/app.js"></script>
 </body>
 </html>

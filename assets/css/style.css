@@ -1,0 +1,114 @@
+h1 {
+    text-align: center;
+    color: #a56940;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 65px;
+}
+
+body {
+    background: url("../images/download.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover; 
+}
+
+  bold   italic
+Size
+Vertical Size: 
+13px
+Horizontal Size: 
+32px
+Border
+Border Radius: 
+8px
+Border Size: 
+0px
+  Box Shadow   /   inset
+Vertical Position: 
+10px
+Horizontal Position: 
+0px
+Blur Radius: 
+14px
+Spread Radius: 
+-7px
+  Text Shadow
+Vertical Position: 
+1px
+Horizontal Position: 
+0px
+Blur Radius: 
+0px
+ <a href="#" class="myButton">turquoise</a>
+
+button.heroeClass {
+	-moz-box-shadow: 0px 10px 14px -7px #42929e;
+	-webkit-box-shadow: 0px 10px 14px -7px #42929e;
+	box-shadow: 0px 10px 14px -7px #42929e;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #599bb3), color-stop(1, #945831));
+	background:-moz-linear-gradient(top, #599bb3 5%, #945831 100%);
+	background:-webkit-linear-gradient(top, #599bb3 5%, #945831 100%);
+	background:-o-linear-gradient(top, #599bb3 5%, #945831 100%);
+	background:-ms-linear-gradient(top, #599bb3 5%, #945831 100%);
+	background:linear-gradient(to bottom, #599bb3 5%, #945831 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#599bb3', endColorstr='#945831',GradientType=0);
+	background-color:#599bb3;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:13px 32px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2042c9;
+}
+button.heroeClass {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #945831), color-stop(1, #599bb3));
+	background:-moz-linear-gradient(top, #945831 5%, #599bb3 100%);
+	background:-webkit-linear-gradient(top, #945831 5%, #599bb3 100%);
+	background:-o-linear-gradient(top, #945831 5%, #599bb3 100%);
+	background:-ms-linear-gradient(top, #945831 5%, #599bb3 100%);
+	background:linear-gradient(to bottom, #945831 5%, #599bb3 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#945831', endColorstr='#599bb3',GradientType=0);
+	background-color:#945831;
+}
+button.heroeClass:active {
+	position:relative;
+	top:1px;
+}
+
+.navbar-form{
+    text-align: center;
+}
+
+.container {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-left: 75px;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    
+}
+
+.imageDiv {
+    float: left;
+    color: black;
+    font-size: 25px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.buttons {
+    text-align: center;
+    margin-bottom: 30px;
+}
